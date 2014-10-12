@@ -54,6 +54,7 @@ gem 'feedly2fastladder'
 
 group :development do
   gem 'annotate'
+  gem 'pry'
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'quiet_assets'

@@ -307,6 +307,7 @@ DEPENDENCIES
   nokogiri
   opml!
   poltergeist
+  pry
   pry-doc
   pry-rails
   quiet_assets
