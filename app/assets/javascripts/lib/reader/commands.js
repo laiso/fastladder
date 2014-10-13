@@ -1,11 +1,11 @@
-function touch(id, state){
+function touch(id, state, entry_id){
     if(app.config.touch_when == state){
-        touch_all(id)
+        touch_all(id, entry_id)
     }
 }
 
 /* 既読化 */
-function touch_all(id){
+function touch_all(id, entry_id){
     if(!id) return;
     var api = new LDR.API("/api/touch_all");
     var el = _$("subs_item_"+id);
@@ -21,7 +21,7 @@ function touch_all(id){
         subs.model.unread_count_cache -= unread;
         subs.model.unread_feeds_count_cache -= 1;
         info.unread_count = 0;
-        api.post({subscribe_id : id}, function(){
+        api.post({subscribe_id : id, entry_id: entry_id}, function(){
             message("Marked as read");
             update("total_unread_count");
         });
@@ -327,7 +327,7 @@ function print_feed(feed){
 
     Control.scroll_top();
     Control.del_scroll_padding();
-    touch(app.state.now_reading, "onload");
+    touch(app.state.now_reading, "onload", items[0].id);
     print_feed.target = "right_body";
     LDR.invoke_hook('AFTER_PRINTFEED', feed);
 }

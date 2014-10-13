@@ -50,9 +50,11 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'settingslogic'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'feedly2fastladder'
 
 group :development do
   gem 'annotate'
+  gem 'pry'
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'quiet_assets'
@@ -83,4 +85,3 @@ end
 group :doc do
   gem 'sdoc', require: false
 end
-
